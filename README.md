@@ -1,4 +1,4 @@
-# eslint-plugin-sakina
+# eslint-plugin-sakina (Flat config version)
 
 Sakina eslint config rules for quick use.
 
@@ -25,6 +25,10 @@ module.exports = require('eslint-plugin-sakina/recommended')
 // eslint.config.js
 module.exports = require('eslint-plugin-sakina/react')
 ```
+
+### Legacy version
+
+ - `@fz6m/eslint-plugin-sakina` : Old version in [v2](https://github.com/xn-sakina/eslint-plugin-sakina/tree/v2) branch.
 
 ### License
 
