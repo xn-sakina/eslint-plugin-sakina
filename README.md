@@ -1,17 +1,13 @@
-# @fz6m/eslint-plugin-sakina
+# eslint-plugin-sakina
 
 Sakina eslint config rules for quick use.
+
+> Currently eslint flat config is experimental, please use it with care.
 
 ### Install
 
 ```bash
-  pnpm add -D @fz6m/eslint-plugin-sakina
-```
-
-### Initial
-
-```bash
-  npx sakina-lint init
+  pnpm add -D eslint-plugin-sakina
 ```
 
 ### Scene
@@ -19,28 +15,17 @@ Sakina eslint config rules for quick use.
 ##### normal
 
 ```js
-// .eslintrc.js
-module.exports = {
-  extends: ['plugin:@fz6m/sakina/recommended']
-}
+// eslint.config.js
+module.exports = require('eslint-plugin-sakina/recommended')
 ```
 
 ##### react
 
 ```js
-// .eslintrc.js
-module.exports = {
-  extends: ['plugin:@fz6m/sakina/react']
-}
+// eslint.config.js
+module.exports = require('eslint-plugin-sakina/react')
 ```
 
-##### v1.x version
+### License
 
-You need add the eslint patch setup require to the beginning of the eslint config file.
-
-```js
-// .eslintrc.js
-require('@fz6m/eslint-plugin-sakina/setup')
-
-// ...
-```
+MIT

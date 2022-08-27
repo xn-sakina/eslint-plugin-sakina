@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["esnext"],
-    "module": "commonjs",
+    "module": "esnext",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -11,10 +11,8 @@
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": false,
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "declaration": true
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }
