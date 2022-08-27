@@ -1,1 +1,1 @@
-module.exports = require('@fz6m/eslint-plugin-sakina/react')
+module.exports = require('eslint-plugin-sakina/react')

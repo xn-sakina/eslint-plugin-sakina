@@ -1,10 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@fz6m/eslint-plugin-sakina': file:../
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   eslint: ^8.23.0
+  eslint-plugin-sakina: file:../
   react: ^18.2.0
   react-dom: ^18.2.0
 
@@ -13,10 +13,10 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
-  '@fz6m/eslint-plugin-sakina': file:.._eslint@8.23.0
   '@types/react': 18.0.17
   '@types/react-dom': 18.0.6
   eslint: 8.23.0
+  eslint-plugin-sakina: file:.._eslint@8.23.0
 
 packages:
 
@@ -960,8 +960,8 @@ packages:
   file:.._eslint@8.23.0:
     resolution: {directory: .., type: directory}
     id: file:..
-    name: '@fz6m/eslint-plugin-sakina'
-    version: 3.0.0-beta.0
+    name: eslint-plugin-sakina
+    version: 3.0.0
     peerDependencies:
       eslint: '>=8.23.0'
     dependencies:
