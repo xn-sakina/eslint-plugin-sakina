@@ -9,6 +9,8 @@ const pluginPrettier = require(eslintPluginPrettier)
 const parser = require.resolve('@typescript-eslint/parser')
 const parserInstance = require(parser)
 
+import type { ParserOptions } from '@typescript-eslint/parser'
+
 export const base = [
   {
     files: ['**/*.ts?(x)', '**/*.js?(x)'],
@@ -23,6 +25,7 @@ export const base = [
         ...globals.es2021, // latest
         ...globals.node,
       },
+      parserOptions: { ecmaFeatures: { globalReturn: true } },
     },
     // plugins: ['prettier'] : eslint-plugin-prettier
     plugins: {
@@ -55,7 +58,7 @@ interface ILanguageOptions {
   sourceType: 'module' | 'script'
   parser: string | ((...args: any[]) => any)
   globals: Record<string, boolean>
-  parserOptions: Record<string, any>
+  parserOptions: ParserOptions
 }
 
 interface IRule {

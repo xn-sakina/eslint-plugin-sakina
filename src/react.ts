@@ -3,11 +3,7 @@ import { base } from './base'
 const reactHooks = require.resolve('eslint-plugin-react-hooks')
 const reactHooksPlugin = require(reactHooks)
 
-base[0]!.languageOptions!.parserOptions = {
-  ecmaFeatures: {
-    jsx: true,
-  },
-}
+base[0]!.languageOptions!.parserOptions!.ecmaFeatures!.jsx = true
 
 base[0]!.rules = {
   ...base[0].rules,
