@@ -29,7 +29,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "prepublishOnly": "pnpm build",
-    "release": "npm publish --registry=https://registry.npmjs.com/",
+    "push": "npm publish --registry=https://registry.npmjs.com/",
     "prepare": "husky install"
   },
   "devDependencies": {
