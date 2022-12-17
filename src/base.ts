@@ -20,7 +20,7 @@ export const base = [
       globals: {
         ...globals.commonjs,
         ...globals.browser,
-        ...globals.es2021,
+        ...globals.es2021, // latest
         ...globals.node,
       },
     },
