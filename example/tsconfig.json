@@ -1,18 +1,7 @@
 {
+  "extends": "@xn-sakina/mental/react",
+  "include": ["src"],
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["esnext"],
-    "module": "esnext",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": ["src"]
+    "isolatedModules": false
+  }
 }

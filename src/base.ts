@@ -1,3 +1,5 @@
+import type { IRules } from './interface'
+
 const globals = require('globals')
 
 const eslintConfigPrettier = require.resolve('eslint-config-prettier')
@@ -8,8 +10,6 @@ const pluginPrettier = require(eslintPluginPrettier)
 
 const parser = require.resolve('@typescript-eslint/parser')
 const parserInstance = require(parser)
-
-import type { ParserOptions } from '@typescript-eslint/parser'
 
 export const base = [
   {
@@ -47,24 +47,4 @@ export const base = [
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
   },
-] as IRules
-
-interface IRules extends Array<IRule> {}
-
-type Matcher = (path: string) => boolean
-
-interface ILanguageOptions {
-  ecmaVersion: string
-  sourceType: 'module' | 'script'
-  parser: string | ((...args: any[]) => any)
-  globals: Record<string, boolean>
-  parserOptions: ParserOptions
-}
-
-interface IRule {
-  files?: Array<string | Matcher>
-  ignores?: Array<string | Matcher>
-  languageOptions?: Partial<ILanguageOptions>
-  plugins?: Record<string, any>
-  rules?: Record<string, any>
-}
+] satisfies IRules
