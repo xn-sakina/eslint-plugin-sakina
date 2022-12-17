@@ -3,9 +3,11 @@
 Sakina eslint config rules for quick use.
 
 > **Warning**
+> 
 > Currently eslint flat config is experimental, please use it with care.
 
 > **Note**
+> 
 > Enable autofix required [vscode-eslint](https://github.com/microsoft/vscode-eslint) extension >= 2.3.0 and set `"eslint.experimental.useFlatConfig": true` config.
 
 ### Install
