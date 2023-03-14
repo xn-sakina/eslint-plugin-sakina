@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-sakina",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "Sakina eslint config rules for quick use",
   "author": "fz6m",
   "homepage": "https://github.com/xn-sakina/eslint-plugin-sakina#README",
@@ -27,32 +27,37 @@
     "eslint-react"
   ],
   "scripts": {
+    "dev": "tsc -w",
     "build": "rimraf dist && tsc",
     "prepublishOnly": "pnpm build",
     "push": "npm publish --registry=https://registry.npmjs.com/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "@types/node": "^18.11.16",
+    "@types/fs-extra": "^11.0.1",
+    "@types/node": "^18.15.3",
     "commit-verify": "^1.0.3",
-    "eslint": "^8.30.0",
+    "eslint": "^8.36.0",
     "execa": "^5.1.1",
     "fs-extra": "^11.1.0",
-    "husky": "^8.0.2",
-    "rimraf": "^3.0.2",
-    "typescript": "^4.9.4"
+    "husky": "^8.0.3",
+    "rimraf": "^4.4.0",
+    "typescript": "^4.9.5",
+    "eslint-plugin-sakina": "workspace:*"
   },
   "dependencies": {
-    "@typescript-eslint/parser": "^5.46.1",
-    "eslint-config-prettier": "^8.5.0",
+    "@typescript-eslint/parser": "6.0.0-alpha.81",
+    "@typescript-eslint/eslint-plugin": "6.0.0-alpha.81",
+    "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "globals": "^13.19.0",
-    "prettier": "^2.8.1"
+    "globals": "^13.20.0",
+    "prettier": "^2.8.4"
   },
   "peerDependencies": {
-    "eslint": ">=8.23.0"
+    "eslint": ">=8.23.0",
+    "typescript": "^4"
   },
   "license": "MIT"
 }

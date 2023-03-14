@@ -1,2 +1,1 @@
-const r = require('./recommended')
-module.exports = r
+module.exports = require('eslint-plugin-sakina/recommended')()

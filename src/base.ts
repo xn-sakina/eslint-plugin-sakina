@@ -1,4 +1,4 @@
-import type { IRules } from './interface'
+import type { IRule, TsPluginParserOptions } from './interface'
 
 const globals = require('globals')
 
@@ -11,9 +11,17 @@ const pluginPrettier = require(eslintPluginPrettier)
 const parser = require.resolve('@typescript-eslint/parser')
 const parserInstance = require(parser)
 
-export const base = [
-  {
-    files: ['**/*.ts?(x)', '**/*.js?(x)'],
+const tsPlugin = require.resolve('@typescript-eslint/eslint-plugin')
+const tsPluginInstance = require(tsPlugin)
+
+export const createBaseConfig = (opts: {
+  files: string[]
+  tsPluginParserOpts?: TsPluginParserOptions
+}) => {
+  const { files, tsPluginParserOpts } = opts
+
+  const base: IRule = {
+    files,
     ignores: ['**/dist/**', '**/node_modules/**'],
     languageOptions: {
       ecmaVersion: 'latest', // default
@@ -40,11 +48,32 @@ export const base = [
       // self custom rules
       'prettier/prettier': 'warn',
       // unused vars
-      '@typescript-eslint/no-unused-vars': 'off',
       'no-unused-vars': 'off',
       // no console/debugger
       'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
       'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     },
-  },
-] satisfies IRules
+  }
+
+  if (tsPluginParserOpts) {
+    // add plugins
+    base.plugins!['@typescript-eslint'] = tsPluginInstance
+    // add rules
+    base.rules = {
+      ...base.rules,
+
+      // unused var
+      '@typescript-eslint/no-unused-vars': 'warn',
+      // no floating promise
+      '@typescript-eslint/no-floating-promises': 'warn',
+    }
+
+    // add tsconfig config
+    base.languageOptions!.parserOptions = {
+      ...base.languageOptions!.parserOptions,
+      ...tsPluginParserOpts,
+    }
+  }
+
+  return base
+}
