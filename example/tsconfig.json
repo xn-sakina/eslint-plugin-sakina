@@ -1,4 +1,4 @@
 {
-  "extends": "@xn-sakina/mental/react",
+  "extends": "@xn-sakina/mental/project",
   "include": ["src"],
 }
