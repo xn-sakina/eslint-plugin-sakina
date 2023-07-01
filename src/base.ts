@@ -1,6 +1,8 @@
 import type { IRule, TsPluginParserOptions } from './interface'
+import { dirname, join } from 'path'
 
-const globals = require('globals')
+const eslintPkgDir = dirname(require.resolve('eslint/package.json'))
+const globals = require(join(eslintPkgDir, './conf/globals'))
 
 const eslintConfigPrettier = require.resolve('eslint-config-prettier')
 const configPrettier = require(eslintConfigPrettier)
@@ -29,9 +31,7 @@ export const createBaseConfig = (opts: {
       parser: parserInstance,
       globals: {
         ...globals.commonjs,
-        ...globals.browser,
-        ...globals.es2021, // latest
-        ...globals.node,
+        ...globals.es2024, // latest
       },
       parserOptions: { ecmaFeatures: { globalReturn: true } },
     },

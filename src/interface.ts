@@ -30,7 +30,7 @@ export interface ICreateConfigOptions {
    *            `./tsconfig.json` -> `${process.cwd()}/tsconfig.json`
    *          monorepo:
    *            [`./tsconfig.json`, `./tsconfig.build.json`] ->
-   *            [`${process.cwd()}/tsconfig.json`, `${process.cwd()}/tsconfig.build.json`
+   *            [`${process.cwd()}/tsconfig.json`, `${process.cwd()}/tsconfig.build.json`]
    * @default `${process.cwd()}/tsconfig.json`
    */
   tsconfig?: string | string[]

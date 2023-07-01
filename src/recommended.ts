@@ -4,6 +4,9 @@ import { normalizeOptions } from './options'
 
 function createRecommendConfig(opts: ICreateConfigOptions = {}) {
   const options = normalizeOptions(opts)
+  if (process.env.ESLINT_SAKINA_DEBUG) {
+    console.log('options: ', options)
+  }
 
   const config: IRules = [
     createBaseConfig({
