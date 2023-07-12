@@ -1,5 +1,4 @@
-// FIXME: IDE current not support exports.types
-import type { ParserOptions } from '@typescript-eslint/parser/dist'
+import type { ParserOptions } from '@typescript-eslint/types/dist'
 
 export type IRules = IRule[]
 export type TsPluginParserOptions = ParserOptions

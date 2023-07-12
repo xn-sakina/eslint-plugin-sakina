@@ -1,37 +1,21 @@
-import type { IRule, TsPluginParserOptions } from './interface'
-import { dirname, join } from 'path'
+import type { IRule } from './interface'
 
-const eslintPkgDir = dirname(require.resolve('eslint/package.json'))
-const globals = require(join(eslintPkgDir, './conf/globals'))
+const globals = require('globals')
+const configPrettier = require('eslint-config-prettier')
+const pluginPrettier = require('eslint-plugin-prettier')
+const parserInstance = require('@typescript-eslint/parser')
 
-const eslintConfigPrettier = require.resolve('eslint-config-prettier')
-const configPrettier = require(eslintConfigPrettier)
-
-const eslintPluginPrettier = require.resolve('eslint-plugin-prettier')
-const pluginPrettier = require(eslintPluginPrettier)
-
-const parser = require.resolve('@typescript-eslint/parser')
-const parserInstance = require(parser)
-
-const tsPlugin = require.resolve('@typescript-eslint/eslint-plugin')
-const tsPluginInstance = require(tsPlugin)
-
-export const createBaseConfig = (opts: {
-  files: string[]
-  tsPluginParserOpts?: TsPluginParserOptions
-}) => {
-  const { files, tsPluginParserOpts } = opts
-
-  const base: IRule = {
-    files,
-    ignores: ['**/dist/**', '**/node_modules/**'],
+export const createGlobalBaseConfig = () => {
+  const config: IRule = {
     languageOptions: {
       ecmaVersion: 'latest', // default
       sourceType: 'module', // default
       parser: parserInstance,
       globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.es2021,
         ...globals.commonjs,
-        ...globals.es2024, // latest
       },
       parserOptions: { ecmaFeatures: { globalReturn: true } },
     },
@@ -55,25 +39,5 @@ export const createBaseConfig = (opts: {
     },
   }
 
-  if (tsPluginParserOpts) {
-    // add plugins
-    base.plugins!['@typescript-eslint'] = tsPluginInstance
-    // add rules
-    base.rules = {
-      ...base.rules,
-
-      // unused var
-      '@typescript-eslint/no-unused-vars': 'warn',
-      // no floating promise
-      '@typescript-eslint/no-floating-promises': 'warn',
-    }
-
-    // add tsconfig config
-    base.languageOptions!.parserOptions = {
-      ...base.languageOptions!.parserOptions,
-      ...tsPluginParserOpts,
-    }
-  }
-
-  return base
+  return config
 }

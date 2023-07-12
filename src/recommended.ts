@@ -1,6 +1,7 @@
-import { createBaseConfig } from './base'
-import type { ICreateConfigOptions, IRules } from './interface'
+import { createGlobalBaseConfig } from './base'
+import type { ICreateConfigOptions, IRule, IRules } from './interface'
 import { normalizeOptions } from './options'
+import { createTSConfig } from './typescript'
 
 function createRecommendConfig(opts: ICreateConfigOptions = {}) {
   const options = normalizeOptions(opts)
@@ -8,21 +9,42 @@ function createRecommendConfig(opts: ICreateConfigOptions = {}) {
     console.log('options: ', options)
   }
 
-  const config: IRules = [
-    createBaseConfig({
-      files: ['**/*.js', '**/*.jsx'],
-    }),
-    // FIXME: currently `@typescript-eslint` not support `.tsx` file when using flat config
-    createBaseConfig({
+  const globalIgnoreConfig: IRule = {
+    ignores: ['**/dist/**', '**/node_modules/**', '**/.git/**'],
+  }
+
+  const configs: IRules = [
+    globalIgnoreConfig,
+    createGlobalBaseConfig(),
+    // tsx
+    createTSConfig({
       files: ['**/*.tsx'],
+      tsPluginParserOptions: options,
+      tsx: true,
     }),
-    createBaseConfig({
+    // ts
+    createTSConfig({
       files: ['**/*.ts'],
-      tsPluginParserOpts: options,
+      tsPluginParserOptions: options,
     }),
+    // jsx
+    {
+      files: ['**/*.jsx'],
+      languageOptions: {
+        parserOptions: {
+          ecmaFeatures: {
+            jsx: true,
+          },
+        },
+      },
+    },
+    // js
+    {
+      files: ['**/*.js'],
+    },
   ]
 
-  return config
+  return configs
 }
 
 export = createRecommendConfig
