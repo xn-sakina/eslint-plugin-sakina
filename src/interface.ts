@@ -32,7 +32,7 @@ export interface ICreateConfigOptions {
    *            [`${process.cwd()}/tsconfig.json`, `${process.cwd()}/tsconfig.build.json`]
    * @default `${process.cwd()}/tsconfig.json`
    */
-  tsconfig?: string | string[]
+  tsconfig?: string | string[] | true
   /**
    * tsconfigRootDir
    * @example __dirname

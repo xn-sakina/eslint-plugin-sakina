@@ -15,7 +15,9 @@ export const normalizeOptions = (opts: ICreateConfigOptions = {}) => {
   }
 
   // tsconfig
-  if (opts.tsconfig?.length) {
+  if (opts.tsconfig === true) {
+    tsconfig = true
+  } else if (opts.tsconfig?.length) {
     tsconfig = opts.tsconfig
   } else {
     // detect root tsconfig.json
