@@ -33,12 +33,24 @@ module.exports = require('eslint-plugin-sakina/react')()
 ```js
 // eslint.config.js
 module.exports = require('eslint-plugin-sakina/...')({
+
+  // ↓ only one option can be configured:
+  // use `projectService`
+  projectService: true,
+  // or use `project`
   tsconfig: './tsconfig.eslint.json', // or ['./tsconfig.json', './packages/*/tsconfig.json']
+
+  // ↓ config project root dir
   root: __dirname
+
 })
 ```
 
 ### Legacy version
+
+### v4.x
+
+No breaking change.
 
 ### v3.x
 
