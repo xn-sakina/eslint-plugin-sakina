@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "eslint src"
+    "dev": "eslint src",
+    "dev:debug": "ESLINT_SAKINA_DEBUG=1 pnpm dev"
   },
   "devDependencies": {
     "@types/react": "^18.2.14",
