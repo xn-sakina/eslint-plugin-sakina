@@ -1,7 +1,13 @@
 import type { ParserOptions } from '@typescript-eslint/types/dist'
 
+type ProjectService = Record<string, any> | true
+
+type ParserOptionsWithoutProjectService = Omit<ParserOptions, 'projectService'>
+
 export type IRules = IRule[]
-export type TsPluginParserOptions = ParserOptions
+export type TsPluginParserOptions = ParserOptionsWithoutProjectService & {
+  projectService?: ProjectService
+}
 
 type Matcher = (path: string) => boolean
 
@@ -10,7 +16,7 @@ interface ILanguageOptions {
   sourceType: 'module' | 'script'
   parser: string | ((...args: any[]) => any)
   globals: Record<string, boolean>
-  parserOptions: ParserOptions
+  parserOptions: TsPluginParserOptions
 }
 
 export interface IRule {
@@ -33,6 +39,11 @@ export interface ICreateConfigOptions {
    * @default `${process.cwd()}/tsconfig.json`
    */
   tsconfig?: string | string[] | true
+  /**
+   * typescript-eslint v8 `projectService` option
+   * @see https://typescript-eslint.io/blog/announcing-typescript-eslint-v8-beta/
+   */
+  projectService?: ProjectService
   /**
    * tsconfigRootDir
    * @example __dirname

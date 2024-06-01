@@ -1,6 +1,6 @@
 import type { IRule } from './interface'
+import globals from 'globals'
 
-const globals = require('globals')
 const configPrettier = require('eslint-config-prettier')
 const pluginPrettier = require('eslint-plugin-prettier')
 const parserInstance = require('@typescript-eslint/parser')

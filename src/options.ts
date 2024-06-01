@@ -1,37 +1,32 @@
-import { join } from 'path'
 import { ICreateConfigOptions, TsPluginParserOptions } from './interface'
-import { existsSync } from 'fs'
 
 export const normalizeOptions = (opts: ICreateConfigOptions = {}) => {
   const cwd = process.cwd()
-  let root: ICreateConfigOptions['root']
-  let tsconfig: ICreateConfigOptions['tsconfig'] | true
+  // final config
+  const tseslintConfig: TsPluginParserOptions = {}
 
   // root
   if (opts.root?.length) {
-    root = opts.root
+    tseslintConfig.tsconfigRootDir = opts.root
   } else {
-    root = cwd
+    tseslintConfig.tsconfigRootDir = cwd
   }
 
   // tsconfig
-  if (opts.tsconfig === true) {
-    tsconfig = true
-  } else if (opts.tsconfig?.length) {
-    tsconfig = opts.tsconfig
-  } else {
-    // detect root tsconfig.json
-    const rootTsconfigPath = join(cwd, 'tsconfig.json')
-    if (existsSync(rootTsconfigPath)) {
-      tsconfig = rootTsconfigPath
+  const usingProject = opts.tsconfig !== undefined
+  const usingProjectService = opts.projectService !== undefined
+  if (usingProjectService) {
+    tseslintConfig.projectService = opts.projectService
+  } else if (usingProject) {
+    if (opts.tsconfig === true) {
+      tseslintConfig.project = true
     } else {
-      tsconfig = true
+      tseslintConfig.project = opts.tsconfig
     }
+  } else {
+    // default use project sevice
+    tseslintConfig.projectService = true
   }
 
-  // root
-  return {
-    project: tsconfig,
-    tsconfigRootDir: root,
-  } as TsPluginParserOptions
+  return tseslintConfig
 }
