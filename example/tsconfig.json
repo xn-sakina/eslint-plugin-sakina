@@ -1,7 +1,6 @@
 {
   "extends": "@xn-sakina/mental/project",
   "compilerOptions": {
-    "baseUrl": "./",
     "jsx": "react-jsx"
   },
   "include": ["src", "other"],
