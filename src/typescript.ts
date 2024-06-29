@@ -17,7 +17,16 @@ export const createTSConfig = (opts: {
     },
     rules: {
       // unused var
-      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
       // no floating promise
       '@typescript-eslint/no-floating-promises': 'warn',
     },
