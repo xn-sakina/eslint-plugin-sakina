@@ -2,7 +2,7 @@
 
 eslint config rules for quick use.
 
-> Required: `eslint ^8` / `typescript ^5`
+> *Required: `eslint ^8` and `typescript ^5`*
 
 ### Install
 
