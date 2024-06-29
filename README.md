@@ -1,10 +1,8 @@
-# eslint-plugin-sakina (Flat config version)
+# eslint-plugin-sakina
 
-Sakina eslint config rules for quick use.
+eslint config rules for quick use.
 
-> **Note**
-> 
-> Enable autofix required [vscode-eslint](https://github.com/microsoft/vscode-eslint) extension >= 2.3.0 and set `"eslint.experimental.useFlatConfig": true` config.
+> Required: `eslint ^8` / `typescript ^5`
 
 ### Install
 
