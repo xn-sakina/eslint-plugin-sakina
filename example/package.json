@@ -7,16 +7,16 @@
     "dev:debug": "ESLINT_SAKINA_DEBUG=1 pnpm dev"
   },
   "devDependencies": {
-    "@types/react": "^18.2.14",
-    "@types/react-dom": "^18.2.6",
-    "eslint": "^8.44.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-sakina": "workspace:*",
-    "prettier": "^2.8.8",
-    "typescript": "^5.1.6"
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.2"
   },
   "dependencies": {
-    "@xn-sakina/mental": "^4.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@xn-sakina/mental": "^4.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
