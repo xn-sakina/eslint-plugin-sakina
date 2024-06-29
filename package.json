@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-sakina",
   "version": "5.1.0",
-  "description": "Sakina eslint config rules for quick use",
+  "description": "eslint config rules for quick use",
   "author": "fz6m",
   "homepage": "https://github.com/xn-sakina/eslint-plugin-sakina#README",
   "repository": {
