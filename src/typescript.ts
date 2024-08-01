@@ -2,8 +2,6 @@ import { IRule, TsPluginParserOptions } from './interface'
 
 const tsPluginInstance = require('@typescript-eslint/eslint-plugin')
 
-// TODO: use `typescript-eslint` instead of `@typescript-eslint/eslint-plugin`
-//       https://typescript-eslint.io/blog/announcing-typescript-eslint-v7/
 export const createTSConfig = (opts: {
   files: string[]
   tsPluginParserOptions: TsPluginParserOptions
