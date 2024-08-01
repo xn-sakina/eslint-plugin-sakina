@@ -2,7 +2,7 @@
 
 eslint config rules for quick use.
 
-> *Required: `eslint ^8` and `typescript ^5`*
+> *Required: `eslint ^9` and `typescript ^5`*
 
 ### Install
 
@@ -46,13 +46,17 @@ module.exports = require('eslint-plugin-sakina/...')({
 
 ### Legacy version
 
+### v5.x
+
+Migration v5 to v6: upgrade eslint to v9.
+
 ### v4.x
 
 No breaking change.
 
 ### v3.x
 
-Migration from v3 :
+Migration v3 to v4 :
 
 ```diff
 // eslint.config.js
