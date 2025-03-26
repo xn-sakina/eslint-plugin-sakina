@@ -46,6 +46,10 @@ module.exports = require('eslint-plugin-sakina/...')({
 
 ### Legacy version
 
+### v6.x
+
+No breaking change.
+
 ### v5.x
 
 Migration v5 to v6: upgrade eslint to v9.
